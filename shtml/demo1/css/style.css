@@ -1,0 +1,59 @@
+/* 页面基本样式 */
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei UI";font-size:14px;}
+a{text-decoration:none;}
+ul{list-style:none;}
+h1,h3,h4{font-weight:normal;}
+
+/* 居中容器公共样式 */
+.container{width:1606px;margin:0 auto;text-align:center;}
+.container > h3{margin-bottom:50px;font-size:48px;color:#f46208;}
+.container > p{line-height:1.714;margin-bottom:64px;padding:0 434px;}
+
+.portfolio > .container,
+.stats > .container,
+.team > .container,
+.contact > .container{padding-top:100px;}
+
+/* 顶部 */
+header{height:94px;background:#2e2e2e;}
+header > .container > .logo{display:block;float:left;margin:30px 0;}
+header > .container > .navbar{float:right;}
+header > .container > .navbar > a{display:block;float:left;line-height:94px;padding:0 25px;color:#fff;}
+header > .container > .navbar > a:hover,
+header > .container > .navbar > a.active{color:#2e2e2e;background:#f00;}
+
+/* banner */
+.banner{position:relative;text-align:center;}
+.banner .banner-bg img{display:block;width:100%;height:674px;}
+.banner .banner-text{position:absolute;top:276px;left:50%;transform:translateX(-50%);color:#fff;}
+.banner .banner-text h1{font-size:84px;}
+
+/* portfolio */
+.portfolio .container .navTag{margin-bottom:52px;}
+.portfolio .container .navTag a{display: inline-block;margin:0 8px;padding:13px;color:#f46208;border:1px solid #f46208;}
+.portfolio .container .navTag a:hover{color:#fff;background:#f46208;}
+.portfolio img{display: block;width:100%;height:560px;}
+
+/* stats */
+.stats .container{padding-bottom:114px;}
+.stats ul{padding:0 60px;}
+.stats li{display:inline-block;margin:0 72px;}
+.stats li h4{color:#f46208;font-size:21px;}
+
+/* team */
+.team{color:#fff;background:#2e2e2e;}
+.team .container{padding-bottom:100px;}
+.team .container ul li{display:inline-block;width:240px;margin:0 30px;}
+
+/* contact */
+.contact .container{padding-bottom:110px;}
+.contact form input,
+.contact form textarea{padding:21px 10px;border:1px solid #bfbfbf;}
+.contact form input:nth-child(1),
+.contact form input:nth-child(2){width:462px;margin:0 11px;}
+.contact form textarea{width:952px;height:274px;margin:18px 0 24px;resize:none;}
+.contact form button{display:block;margin:0 auto;padding:21px;border:none;color:#fff;background:#f46208;cursor:pointer;}
+
+/* 页脚 */
+footer{height:110px;line-height:110px;color:#fff;text-align:center;background:#2e2e2e;}
+
