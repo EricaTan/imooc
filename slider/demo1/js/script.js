@@ -9,7 +9,11 @@ var index = 0,
 	len = pics.length,
 	dots = getId("dots").getElementsByTagName("span"),
 	prev = getId("prev"),
-	next = getId("next");
+	next = getId("next"),
+	menu = getId("menu-content"),
+	menuItems = menu.getElementsByClassName("menu-item"),
+	subMenu = getId("sub-menu"),
+	innerBox = subMenu.getElementsByClassName("inner-box");
 
 function slideImg(){
 	var main = getId("main");
@@ -22,7 +26,7 @@ function slideImg(){
 	main.onmouseout = function(){
 		timer = setInterval(function(){
 			index++;
-			if(index >= 3){
+			if(index >= len){
 				index = 0;
 			}
 			// 切换图片
@@ -58,6 +62,34 @@ function slideImg(){
 		if(index < 0) index = len-1;
 		changeImg();
 	}
+
+	// 导航菜单
+	// 遍历主菜单，且绑定事件
+	for(var k = 0; k < menuItems.length; k++){
+		// 给每个menu-item定义data-index属性，作为索引
+		menuItems[k].setAttribute("data-index",k);
+		menuItems[k].onmouseover = function(){	
+			subMenu.className = "sub-menu";
+			var idx = this.getAttribute("data-index");
+			for(var m = 0; m < innerBox.length; m++){
+				innerBox[m].style.display = "none";
+				menuItems[m].style.background = "none";
+			}
+			menuItems[idx].style.background = "rgba(0,0,0,0.1)";
+			innerBox[idx].style.display = "block";
+		}	
+	}
+
+	menu.onmouseout = function(){
+		subMenu.className = "sub-menu hide";
+	}
+	subMenu.onmouseover = function(){
+		this.className = "sub-menu";
+	}
+	subMenu.onmouseout = function(){
+		subMenu.className = "sub-menu hide";
+	}
+
 }
 
 // 切换图片
