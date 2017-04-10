@@ -1,0 +1,64 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+ul{
+	list-style:none;
+}
+
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after{
+	display:table;
+	content:'';
+}
+.clearfix:after{
+	clear:both;
+}
+
+body{
+	color:#666;
+  	font-family:"Microsoft YaHei";
+  	font-size:22px;
+}
+
+/* 外层容器 */
+.slider-container{
+	width:1200px;
+	margin:50px auto;
+}
+
+/* 菜单 */
+.slider-menu{
+	clear:both;
+	border:1px dotted #aaa;
+}
+.slider-menu li{
+	float:left;
+	width:25%;
+	height:52px;
+	border-radius:6px;
+	line-height:52px;
+	text-align:center;
+	cursor:pointer;
+}
+.slider-menu .active{
+	background:#fc0;
+}
+
+/* banner图 */
+.slider-inner{
+	position:relative;
+	width:100%;
+	height:460px;
+	overflow:hidden;
+}
+.slider-inner .item{
+	display:none;
+	position:absolute;
+}
+.slider-inner .active{
+	display:block;
+}
+
