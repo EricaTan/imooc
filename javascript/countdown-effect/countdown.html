@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时效果</title>
+</head>
+<body>
+	<div id="show">显示时间的位置</div>
+
+	<script>
+		window.onload = function(){
+			var curTime = new Date(),
+				endTime = new Date('2017,12,31'),
+				timeDiff = Math.ceil((endTime.getTime() - curTime.getTime()) / (24 * 60 * 60 * 1000));	
+				// getTime() 得到的值为毫秒 1d = 24h, 1h = 60m, 1m = 60s, 1m = 1000ms
+				// Math.ceil() 向上取整计算，返回的是大于或等于函数参数，并且与之最接近的整数
+
+			document.write('距离2017年12月31日还有' + timeDiff + '天');
+		}
+	</script>
+</body>
+</html>

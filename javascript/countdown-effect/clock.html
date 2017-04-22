@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间效果</title>
+</head>
+<body>
+	<div id="show">显示时间的位置</div>
+
+	<script>
+		window.onload = function(){
+
+			showTime();
+
+			function checkTime(i){
+				if(i < 10){
+					i = '0' + i;
+				}
+				return i;
+			}
+			
+			function showTime(){
+				var time = new Date(),	// 获取当前具体时间
+					year = time.getFullYear(),	// 获取当前年份
+					month = time.getMonth() + 1,	// 获取当前月份
+					date = time.getDate(),	// 获取当前日期
+					day = time.getDay(),	// 获取当前是星期几
+					hour = time.getHours(),	// 获取当前时钟数
+					minutes = time.getMinutes(),	// 获取当前分钟数
+					seconds = time.getSeconds(),	// 获取当前秒数
+					
+					weekday = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+					minutes = checkTime(minutes);
+					seconds = checkTime(seconds);
+
+				document.getElementById('show').innerHTML = year + '年' + month + '月' + date + '日' + weekday[day] 
+															+ hour + ':' + minutes + ':' + seconds;
+				setTimeout(showTime, 500);
+			}
+		}
+	</script>
+</body>
+</html>
