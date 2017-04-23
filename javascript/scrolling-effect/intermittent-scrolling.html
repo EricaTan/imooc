@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>间歇性滚动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 300px;
+			height: 80px;
+			overflow: hidden;
+			margin: 50px auto;
+			border: 1px solid #ccc		
+		}
+		.container ul li{
+			height: 24px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="list-1">
+			<li>1. 测试文字</li>
+			<li>2. 测试文字</li>
+			<li>3. 测试文字</li>
+			<li>4. 测试文字</li>
+			<li>5. 测试文字</li>
+			<li>6. 测试文字</li>
+			<li>7. 测试文字</li>
+			<li>8. 测试文字</li>
+	 	</ul>
+	</div>
+
+	<script>
+		var container = document.querySelector('.container'),
+			liHeight = 24,	// 单行高度
+			timer,
+			speed = 50,
+			delay = 2000;
+
+		container.innerHTML += container.innerHTML;
+		container.scrollTop = 0;
+
+		function startScroll(){
+			container.scrollTop++;
+			timer = setInterval(marquee, speed);
+		}
+		
+		function marquee(){
+			if(container.scrollTop % liHeight == 0){
+				clearInterval(timer);
+				setTimeout(startScroll, delay);
+			}else{
+				container.scrollTop ++;
+				if(container.scrollTop >= container.scrollHeight / 2){
+					container.scrollTop = 0;
+				}
+			}
+		} 
+		setTimeout(startScroll, delay);	// init
+	</script>
+</body>
+</html>
