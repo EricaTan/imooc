@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 300px;
+			height: 80px;
+			overflow: hidden;
+			margin: 50px auto;
+			border: 1px solid #ccc		
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="list-1">
+			<li>1. 测试文字</li>
+			<li>2. 测试文字</li>
+			<li>3. 测试文字</li>
+			<li>4. 测试文字</li>
+			<li>5. 测试文字</li>
+			<li>6. 测试文字</li>
+			<li>7. 测试文字</li>
+			<li>8. 测试文字</li>
+	 	</ul>
+	 	<ul class="list-2"></ul>
+	</div>
+
+	<script>
+		var container = document.querySelector('.container'),
+			list1 = document.querySelector('.list-1'),
+			list2 = document.querySelector('.list-2'),
+			speed = 50;
+		container.scrollTop = 0;
+		list2.innerHTML = list1.innerHTML;
+
+		function marquee(){
+			if(container.scrollTop >= list1.scrollHeight){
+				container.scrollTop = 0;
+			}else{
+				container.scrollTop ++;
+			}
+		} 
+		var myScroll = setInterval('marquee()', speed);
+		container.onmouseover = function(){
+			clearInterval(myScroll);
+		}
+		container.onmouseout = function(){
+			myScroll = setInterval(marquee, speed);
+		}
+	</script>
+</body>
+</html>
