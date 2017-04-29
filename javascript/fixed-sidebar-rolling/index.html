@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定边栏滚动特效</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.clearfix::before,
+		.clearfix::after{
+			display: table;
+			content: '';
+		}
+		.clearfix::after{
+			clear: both;
+		}
+		.wrapper{
+			width: 100%;
+		}
+		.main{
+			width: 100%;
+			margin: 10px 0;
+		}
+		.left{
+			float: left;
+			width: 60%;
+			height: 2000px;
+			background-color: gold;
+		}
+		.right{
+			float: right;
+			width: 30%;
+			height: 1200px;
+			background-color: purple;
+		}
+		.footer{
+			width: 100%;
+			height: 80px;
+			margin-top: 10px;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main clearfix">
+			<div id="left" class="left"></div>
+			<div id="right" class="right"></div>
+		</div>
+		<!-- <div id="footer" class="footer"></div> -->
+	</div>
+
+	<script>
+		var $ = function(id){
+			return document.getElementById(id);
+		}
+
+		var addEvent = function(obj, event, fn){
+			if(obj.addEventListener){
+				obj.addEventListener(event, fn, false);
+			}else{
+				obj.attachEvent('on' + event, fn);
+			}
+		}
+
+		var domSide = $('right');
+		var scrollEvent = function(){
+			var sideHeight = domSide.offsetHeight,
+				screenHeight = document.documentElement.clientHeight || document.body.clientHeight,
+				scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+			if(scrollHeight + screenHeight > sideHeight){
+				domSide.style.cssText = 'position:fixed; right:0px; top:' + (-(sideHeight - screenHeight)) + 'px';
+			}else{
+				domSide.style.position = 'static';
+			}
+		}
+
+		addEvent(window, 'scroll', function(){
+			scrollEvent();
+		});
+
+		addEvent(window, 'resize', function(){
+			scrollEvent();
+		});
+	</script>
+</body>
+</html>
