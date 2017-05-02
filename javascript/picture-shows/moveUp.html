@@ -3,51 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>图片展示上移效果</title>
-	<style type="text/css">
-		body, ul, li, ol{
-		    list-style: none;
-			padding: 0px;
-			margin: 0px;
-			font-size: 12px;
-			font-family: 微软雅黑;
-		}
-		img{
-			border: 0px;
-		}
-		.picList{
-			float: left;
-			width: 100%;
-		}
-		.picList .col{
-			position: relative;
-			float: left;
-			width: 300px;
-			height: 200px;
-			overflow: hidden;
-			margin: 10px 0 0 10px;
-		}
-		.picList .col img, .col a{
-			position: absolute;
-			top: 0px;
-			left: 0px;
-		}
-		.picList .col img{
-			width: 100%;
-		}
-		.picList .col a{
-			display: block;
-			top: 160px;
-			width: 280px;
-			height: 180px;
-		    padding: 10px;
-			background:#000;
-			color: white;
-			font-style: normal;
-			line-height: 25px;
-			text-decoration: none;
-			opacity: 0.8;
-		}
-	</style>
+	<link rel="stylesheet" href="css/moveUp.css">
 </head>
 <body>
 	<div class='picList' id="picList">
@@ -70,5 +26,7 @@
 		   </a> 
 		</div>
 	</div>
+
+	<script src="js/moveUp.js"></script>
 </body>
 </html>
